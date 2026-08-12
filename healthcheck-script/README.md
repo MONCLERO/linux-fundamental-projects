@@ -1,8 +1,8 @@
 # Automated Server Health Check Script
 
-**Objective:** Replace manual daily health checks (nginx status, disk space, mount verification) with a single automated, logged Bash script.
+### Objective: Replace manual daily health checks (nginx status, disk space, mount verification) with a single automated, logged Bash script.
 
-**File:** healthcheck-script/healthcheck.sh
+### File: healthcheck-script/healthcheck.sh
 
 ---
 
@@ -26,21 +26,19 @@
 
 - Exit code behavior under set -e: discovered firsthand that set -e terminates a script immediately on any non-zero exit code — including from a command captured into a variable — and that intentionally "expected" failures (like a service being down) need to be explicitly handled with '' || true '' so the script can report the failure instead of dying before it gets the chance to
 
+
 **Debugging highlight:** Traced a misleading "silent script death" back to set -e reacting to systemctl is-active returning non-zero when NGINX was down — the exact scenario the script was built to detect and report. Fixed by explicitly suppressing the expected failure (|| true) while keeping set -e active for genuine unexpected errors elsewhere in the script.
 
 ---
 
-- **Environment**
+## Environment
+
 - **Ubuntu (via WSL2)**
 - **Bash** 
 - **systemd, NGINX, ext4**
 - **Notes**
 
----
-
-````
 This repo is a working log of hands-on Linux/DevOps practice — commands, real terminal output, real errors, and the actual troubleshooting process, not just the finished solution.
-````
 
 ---
 
