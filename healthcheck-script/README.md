@@ -1,8 +1,10 @@
 # Automated Server Health Check Script
 
-### Objective: Replace manual daily health checks (nginx status, disk space, mount verification) with a single automated, logged Bash script.
+### Objective
+Replace manual daily health checks (nginx status, disk space, mount verification) with a single automated, logged Bash script.
 
-### File: healthcheck-script/healthcheck.sh
+### File
+healthcheck-script/healthcheck.sh
 
 ---
 
